@@ -1,0 +1,73 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/movieSearch.css');
+        assets.addCss('/css/owl.carousel.min.css');
+        assets.addCss('/css/owl.theme.default.min.css');
+        assets.addJs('/js/movie.js');
+    </isscript>
+    
+    <div class="container movies-container">
+        <h1 class="page-title">${Resource.msg('label.heading','movie',null)}</h1>
+        <div class="searchMovie-container form-group required card">
+            <form id="movieForm" action="${pdict.actionUrl}">
+                <h4><label class="form-control-label" for="searchMovie">
+                    ${Resource.msg('label.input.searchmovies', 'movie', null)}
+                </label></h4>
+                <div class="input-group mb-2">
+                    <input type="text" id="searchMovie" class="form-control searchMovie" required placeholder="${Resource.msg('label.input.searchmovies.placeholder','movie',null)}" aria-label="${Resource.msg('label.input.searchmovies.placeholder','movie',null)}" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary clear-results" type="button">${Resource.msg('label.button.clearsearch.text','movie',null)}</button>
+                    </div>
+                    <div class="invalid-feedback">${Resource.msg('label.input.searchmovies.error','movie',null)}</div>
+                </div>
+                <isif condition="${!empty(pdict.recentKeywords) && pdict.recentKeywords.length > 0}">
+                    <isinclude template="movie/recentKeywords" />
+                </isif>
+                <div class="advanced-search">
+                    <div class="adv-search-checkbox">
+                        <input class="asearch-checkbox" type="checkbox" id="advancedSearch" />
+                        <label class="form-check-label" for="advancedSearch">${Resource.msg('label.advanced.search','movie',null)}</label>
+                    </div>
+                    <div class="advanced-search-menu d-none mt-2">
+                        <isif condition="${pdict.supportedLanguages.length > 0}">
+                            <h4 class="mb-2">${Resource.msg('label.dropdown.language','movie',null)}</h4>
+                            <div class="dropdown lang-dropdown">
+                                <button class="btn btn-light dropdown-toggle" type="button" id="languagesDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${Resource.msg('label.dropdown.languages','movie',null)}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="languagesDropdownButton">
+                                    <isloop items="${pdict.supportedLanguages}" var="lang" status="loopState">
+                                        <a class="dropdown-item" href="javascript:void(0);" data-value="${lang.id}">${lang.value}</a>
+                                    </isloop>
+                                </div>
+                            </div>
+                        </isif>
+                        <isif condition="${pdict.genres.length > 0}">
+                            <h4 class="mb-2 mt-4">${Resource.msg('label.genres','movie',null)}</h4>
+                            <isloop items="${pdict.genres}" var="genre" status="loopState">
+                                <span class="genre genre${loopState.index}">
+                                    <input class="genre-checkbox" type="checkbox" data-value="${genre}" id="${genre + loopState.index}"/>
+                                    <label class="form-check-label genre-checkbox-label" for="${genre + loopState.index}">${genre}</label>
+                                </span>
+                            </isloop>
+                        </isif>
+                        <h4 class="mb-2 mt-4"><label class="form-control-label" for="releaseYear">
+                            ${Resource.msg('label.year','movie',null)}
+                        </label></h4>
+                        <input type="text" name="releaseYear" id="releaseYear" class="releaseYear form-control" maxlength="4" 
+                            placeholder="${Resource.msg('label.year','movie',null)}" aria-label="${Resource.msg('label.year','movie',null)}"/>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block btn-secondary mt-2 bt-search-movies" data-url="${pdict.actionUrl}" data-fetch-video="${pdict.fetchVideoUrl}">${Resource.msg('label.button.searchmovies.text','movie',null)}</button>
+            </form>
+        </div>
+        <div class="searchresults-container"></div>
+        <isif condition="${!empty(pdict.top25Movies) && pdict.top25Movies.length > 0}">
+            <isinclude template="movie/moviesCarousel" />
+        </isif>
+        <isinclude template="movie/requestTrailer" />
+    </div>
+
+    <isinclude template="movie/movietrailerpopup" />
+</isdecorate>

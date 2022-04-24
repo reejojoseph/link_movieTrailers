@@ -1,0 +1,17 @@
+<h1 class="page-title topMovies">${Resource.msg('label.heading.topMovies','movie',null)}</h1>
+<div class="owl-carousel">
+    <isloop items="${pdict.top25Movies}" var="result" status="loopState">
+        <div class="row movie${loopState.index} movie">
+            <div class="col-sm-12">
+                <div class="movie-details">
+                    <img src="${result.image}" alt="${result.title}" title="${result.title}" class="image" />
+                    <div class="info">
+                        <div class="title">${result.title}</div>
+                        <div class="description">${!empty(result.description) ? result.description : '(' + result.year + ')'}</div>
+                        <a href="javascript:void(0);" class="playvideo" data-imdbid="${result.id}">${Resource.msg('label.playvideo','movie',null)}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </isloop>
+</div>

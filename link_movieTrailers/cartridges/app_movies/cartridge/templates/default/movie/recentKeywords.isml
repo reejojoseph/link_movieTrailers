@@ -1,0 +1,6 @@
+<div class="recents">
+    <h6>${Resource.msg('label.recent.searches', 'movie', null)}</h4>
+    <isloop items="${pdict.recentKeywords}" var="result" status="loopState">
+        <h6><span class="badge keyword" data-value="${result}">${result}</span></h6>
+    </isloop>
+</div>

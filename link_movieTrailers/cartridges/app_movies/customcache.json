@@ -1,0 +1,8 @@
+{
+    "caches": [
+      {
+        "id": "movieCache",
+        "expireAfterSeconds": 604800
+      }
+    ]
+  }

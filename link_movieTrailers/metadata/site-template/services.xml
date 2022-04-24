@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://www.demandware.com/xml/impex/services/2014-09-26">
+    <service-credential service-credential-id="imdb.rest.advancedsearch.credential">
+        <url>https://imdb-api.com/API/AdvancedSearch/{API_KEY}?</url>
+        <user-id/>
+        <password encrypted="true" encryption-type="common.export">kPfBGeO+5fmSVv4sjHQ+8A4a81iAp/q/PrSfKFDTBjo=</password>
+    </service-credential>
+
+    <service-credential service-credential-id="imdb.rest.gettop50.credentials">
+        <url>https://imdb-api.com/API/Top250Movies/{API_KEY}</url>
+        <user-id/>
+        <password encrypted="true" encryption-type="common.export">pD3544Azmku3AOA/cleJ1MAIFdS580TiLvzP0YZdzv8=</password>
+    </service-credential>
+
+    <service-credential service-credential-id="imdb.rest.getvideodetails.credentials">
+        <url>https://imdb-api.com/API/YouTubeTrailer/{API_KEY}/{IMDB_ID}</url>
+        <user-id/>
+        <password encrypted="true" encryption-type="common.export">i9oe4sBVWhvtTbSWcDWAVunlBIa/dg0yrDp70AOA11I=</password>
+    </service-credential>
+
+    <service-credential service-credential-id="imdb.rest.searchmovies.credentials">
+        <url>https://imdb-api.com/API/SearchMovie/{API_KEY}/{MOVIE_NAME}</url>
+        <user-id/>
+        <password encrypted="true" encryption-type="common.export">M2/2iNWuXJa42IaoOGDNdRMZHGzsZIt/R5YLtoy8Q20=</password>
+    </service-credential>
+
+    <service-credential service-credential-id="youtube.rest.listvideos.credentials">
+        <url>https://youtube.googleapis.com/youtube/v3/videos?part={PART}&amp;maxResults={MAX_RESULTS}&amp;key={API_KEY}</url>
+        <user-id/>
+        <password encrypted="true" encryption-type="common.export">/gz7RcpuK/PgKBLClDMHgizuKvL2K958qnm2L3wQo2I=</password>
+    </service-credential>
+
+    <service-profile service-profile-id="imdb.rest.advancedsearch.profile">
+        <timeout-millis>15000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>0</cb-calls>
+        <cb-millis>0</cb-millis>
+    </service-profile>
+
+    <service-profile service-profile-id="imdb.rest.gettop50.profile">
+        <timeout-millis>10000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>0</cb-calls>
+        <cb-millis>0</cb-millis>
+    </service-profile>
+
+    <service-profile service-profile-id="imdb.rest.getvideodetails.profile">
+        <timeout-millis>10000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>0</cb-calls>
+        <cb-millis>0</cb-millis>
+    </service-profile>
+
+    <service-profile service-profile-id="imdb.rest.searchmovies.profile">
+        <timeout-millis>15000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>0</cb-calls>
+        <cb-millis>0</cb-millis>
+    </service-profile>
+
+    <service-profile service-profile-id="youtube.rest.listvideos.profile">
+        <timeout-millis>10000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>0</cb-calls>
+        <cb-millis>0</cb-millis>
+    </service-profile>
+
+    <service service-id="imdb.rest.advancedsearch">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>imdb-advancedsearch</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>imdb.rest.advancedsearch.profile</profile-id>
+        <credential-id>imdb.rest.advancedsearch.credential</credential-id>
+    </service>
+
+    <service service-id="imdb.rest.gettop50">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>imdb-gettop50</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>imdb.rest.gettop50.profile</profile-id>
+        <credential-id>imdb.rest.gettop50.credentials</credential-id>
+    </service>
+
+    <service service-id="imdb.rest.getvideodetails">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>imdb-getvideodetails</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>imdb.rest.getvideodetails.profile</profile-id>
+        <credential-id>imdb.rest.getvideodetails.credentials</credential-id>
+    </service>
+
+    <service service-id="imdb.rest.searchmovies">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>imdb-searchmovies</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>imdb.rest.searchmovies.profile</profile-id>
+        <credential-id>imdb.rest.searchmovies.credentials</credential-id>
+    </service>
+
+    <service service-id="youtube.rest.listvideos">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>youtube-listvideos</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>youtube.rest.listvideos.profile</profile-id>
+        <credential-id>youtube.rest.listvideos.credentials</credential-id>
+    </service>
+
+</services>

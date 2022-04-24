@@ -1,0 +1,137 @@
+.movies-container {
+    .searchMovie-container {
+        .bt-search-movies {
+            width: 20%;
+
+            @media screen and (max-width: 768px) { // stylelint-disable-line
+                width: 100%;
+            }
+        }
+    }
+
+    label.form-control-label {
+        margin-bottom: 0;
+    }
+
+    .recents {
+        display: flex;
+        margin-top: 5px;
+        flex-wrap: wrap;
+
+        h6 {
+            margin-right: 10px;
+        }
+
+        .keyword {
+            color: #6c757d;
+            border: 1px solid #6c757d;
+            cursor: pointer;
+        }
+    }
+
+    .results {
+        .movie {
+            padding: 10px 0;
+
+            .movie-details {
+                display: flex;
+
+                .image {
+                    width: 20%;
+                }
+
+                .title {
+                    font-size: 18px;
+                    line-height: 100%;
+                    margin-left: 5px;
+                }
+
+                .description {
+                    font-size: 16px;
+                    line-height: 16px;
+                    margin-left: 5px;
+                    color: #a4a4a4;
+                }
+
+                .playvideo {
+                    font-size: 16px;
+                    line-height: 16px;
+                    margin-left: 5px;
+
+                    &.novideo {
+                        color: #6c757d !important;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .info * {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    .owl-carousel .owl-item img {
+        width: 75% !important;
+    }
+
+    .advanced-search-menu {
+        padding: 10px;
+        border: 1px solid #d5d5d5;
+
+        .lang-dropdown {
+            width: fit-content;
+        }
+
+        .genre-checkbox-label {
+            text-transform: capitalize;
+        }
+
+        span.genre {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .releaseYear {
+            width: 20%;
+
+            @media screen and (max-width: 768px) { // stylelint-disable-line
+                width: 100%;
+            }
+        }
+    }
+
+    .card {
+        padding: 24px;
+    }
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+}
+
+.movieTrailerModal {
+    .modal-content {
+        background: #1f1f1f;
+        color: #d5d5d5;
+
+        .modal-header {
+            border-bottom-color: #d5d5d5;
+
+            .close {
+                color: #d5d5d5;
+            }
+        }
+
+        .modal-footer {
+            border-top-color: #d5d5d5;
+
+            .shareto {
+                margin-right: 10px;
+            }
+        }
+    }
+}

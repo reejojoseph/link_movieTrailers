@@ -1,0 +1,18 @@
+<div class="modal movieTrailerModal" tabindex="-1" role="dialog" id="movieTrailerModal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center"></div>
+      <div class="modal-footer">
+        <span class="shareto">${Resource.msg('label.share','movie',null)}</span>
+        <button type="button" class="btn btn-secondary btn-share btn-fb">${Resource.msg('label.share.facebook','movie',null)}</button>
+        <button type="button" class="btn btn-secondary btn-share btn-twitter">${Resource.msg('label.share.twitter','movie',null)}</button>
+      </div>
+    </div>
+  </div>
+</div>
