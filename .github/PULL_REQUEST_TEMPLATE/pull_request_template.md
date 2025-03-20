@@ -1,4 +1,0 @@
-- [ ] Unit Testing
-- [ ] Added Confluence page for new Feature / Configs
-- [ ] Committed Meta, Services, Jobs, Preferences xml?
-- [ ] Updated Site xml?
